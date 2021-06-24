@@ -1,0 +1,1 @@
+[{"filePath":"theme.tsx","name":"Theme","description":"","properties":[{"name":"variant","description":"Choose between light and dark mode.","required":false,"type":"'light' | 'dark'"}],"access":"public","methods":[],"args":[],"examples":[]}]

@@ -1,0 +1,30 @@
+---
+description: 'Generic theme provider'
+labels: ['theme', 'ui', 'mode']
+---
+
+import {Theme} from './theme';
+
+## React Component for applying theme to underlying components
+
+Use the theme provider to compose brand-specific themes.
+
+### Component usage
+```js
+<Theme>
+    <p>This is a styled element </p>
+</Theme>
+```
+
+### Using props to customize the text
+
+Modify the text to see it change live:
+```js live
+() => {
+  return (
+    <Theme>
+      <p>This is a styled element </p>
+    </Theme>
+  );
+};
+```
