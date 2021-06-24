@@ -1,0 +1,1 @@
+[{"filePath":"grid.tsx","name":"Grid","description":"","properties":[{"name":"container","description":"define if the grid is a container.","required":false,"type":"boolean"},{"name":"item","description":"define if the item is a container.","required":false,"type":"boolean"}],"access":"public","methods":[],"args":[],"examples":[]}]
