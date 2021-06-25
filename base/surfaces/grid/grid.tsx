@@ -65,5 +65,5 @@ export function Grid({
 Grid.defaultProps = {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    spacing: 'lg',
+    spacing: 'xs',
 }

@@ -3,7 +3,7 @@ description: 'A Grid component.'
 labels: ['label1', 'label2', 'label3']
 ---
 
-import { Grid } from './grid';
+import {Grid} from './grid';
 
 ## React Component for rendering text
 
@@ -11,12 +11,25 @@ A basic div that renders some text
 
 ### Component usage
 ```js
-<Grid text="hello from Grid" />
+<Grid container>
+    <Grid item>
+        <div>Item 1</div>
+    </Grid>
+</Grid>
 ```
 
 ### Using props to customize the text
 
 Modify the text to see it change live:
-```js live
-<Grid text="hello from Grid" />
+```tsx live
+() => {
+    return(
+      <Grid container spacing='lg'>
+        <Grid>
+            <div>Item 1</div>
+            <div>Item 2</div>
+        </Grid>
+    </Grid>
+    );
+}
 ```
