@@ -1,84 +1,30 @@
-$spacing: (
-    "sm": 8px,
-    "md": 16px,
-    "lg": 24px,
-);
-
 $breakpoints: (
-    "sm": 600px,
-    "md": 960px,
-    "lg": 1280px,
+    "s": 65rem,
+    "m": 70rem,
 );
-
-$justifyContent: (flex-start, flex-end, center, space-between);
-$alignItems: (flex-start, flex-end, center);
 
 @mixin breakpoint($name) {
-    @media screen and (min-width: map-get($breakpoints, $name)) {
+    @media screen and (max-width: map-get($breakpoints, $name)) {
         @content;
     }
 }
 
 .Grid {
-    &_container {
-        display: flex;
-        flex-wrap: wrap;
-        height: 100%;
+    display: grid;
+    grid-template-columns: 1fr repeat(12, minmax(auto, 4.2rem)) 1fr;
+    grid-template-rows: max-content;
+    gap: 2rem 2rem;
+    margin: 0;
+
+    @include breakpoint("s") {
+        grid-template-columns: 1rem repeat(6, 1fr) 1rem;
+        gap: 1rem 1rem;
+        margin: 0;
     }
 
-    &_item {
-        display: block;
-    }
-
-    @for $i from 1 to 13 {
-        &_xs_#{$i} {
-            flex-basis: $i/12 * 100%;
-        }
-    }
-
-    @include breakpoint("sm") {
-        @for $i from 1 to 13 {
-            &_sm_#{$i} {
-                flex-basis: $i/12 * 100%;
-            }
-        }
-    }
-
-    @include breakpoint("md") {
-        @for $i from 1 to 13 {
-            &_md_#{$i} {
-                flex-basis: $i/12 * 100%;
-            }
-        }
-    }
-
-    @include breakpoint("lg") {
-        @for $i from 1 to 13 {
-            &_lg_#{$i} {
-                flex-basis: $i/12 * 100%;
-            }
-        }
-    }
-
-    @each $name, $value in $spacing {
-        &_spacing_#{$name} {
-            margin: -$value;
-        }
-
-        &_spacing_#{$name} > &_item {
-            padding: $value;
-        }
-    }
-
-    @each $value in $justifyContent {
-        &_justifyContent_#{$value} {
-            justify-content: $value;
-        }
-    }
-
-    @each $value in $alignItems {
-        &_alignItems_#{$value} {
-            align-items: $value;
-        }
+    @include breakpoint("m") {
+        grid-template-columns: 2rem repeat(6, 1fr) 2rem;
+        gap: 1rem 1rem;
+        margin: 0;
     }
 }
