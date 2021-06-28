@@ -7,6 +7,12 @@
         "mainFile": "index.ts",
         "rootDir": "base/surfaces/grid"
     },
+    "surfaces/row": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base/surfaces/row"
+    },
     "theme": {
         "scope": "",
         "version": "",

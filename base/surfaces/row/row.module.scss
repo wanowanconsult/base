@@ -1,0 +1,25 @@
+$breakpoints: (
+    "s": 65rem,
+    "m": 70rem,
+);
+
+@mixin breakpoint($name) {
+    @media screen and (max-width: map-get($breakpoints, $name)) {
+        @content;
+    }
+}
+
+.Row {
+    grid-column-start: attr(data-defaultstart, 1);
+    grid-column-end: attr(data-defaultend, 12);
+
+    @include breakpoint("s") {
+        grid-column-start: attr(data-smallstart, 1);
+        grid-column-end: attr(data-smallend, 6);
+    }
+
+    @include breakpoint("m") {
+        grid-column-start: attr(data-mediumstart, 1);
+        grid-column-end: attr(data-mediumend, 6);
+    }
+}
