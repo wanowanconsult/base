@@ -3,20 +3,33 @@ description: 'A Row component.'
 labels: ['label1', 'label2', 'label3']
 ---
 
-import { Row } from './row';
+import {Row} from './row';
+import {Grid} from '@wanowanconsult/base.surfaces.grid';
 
 ## React Component for rendering text
 
 A basic div that renders some text
 
 ### Component usage
-```js
-<Row text="hello from Row" />
+```tsx
+<Grid>
+    <Row ds={2} de={3} ms={1} me={6} ss={1} se={6}>
+        <div>
+            Row from 2 to 3
+        </div>
+    </Row>
+</Grid>
 ```
 
 ### Using props to customize the text
 
 Modify the text to see it change live:
 ```js live
-<Row text="hello from Row" />
+<Grid>
+    <Row ds={2} de={3} ms={1} me={6} ss={1} se={6}>
+        <div>
+            Row from 2 to 3
+        </div>
+    </Row>
+</Grid>
 ```

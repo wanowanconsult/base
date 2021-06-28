@@ -2,65 +2,68 @@ import * as React from 'react';
 
 // @ts-ignore
 import styles from "./row.module.scss";
+import classnames from "classnames";
 
-type DefaultPositions = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-type Positions = 1 | 2 | 3 | 4 | 5 | 6;
+type Positions = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type ResponsivePositions = 1 | 2 | 3 | 4 | 5 | 6;
 
 export type RowProps = {
     /**
-     * a text to be rendered in the component.
+     * the start position of the row in 'default' screen size.
      */
-    defaultStart: DefaultPositions;
+    ds?: Positions;
 
     /**
-     * a text to be rendered in the component.
+     * the end position of the row in 'default' screen size.
      */
-    defaultEnd: DefaultPositions;
+    de?: Positions;
 
     /**
-     * a text to be rendered in the component.
+     * the start position of the row in 'medium' screen size.
      */
-    mediumStart: Positions;
+    ms?: ResponsivePositions;
 
     /**
-     * a text to be rendered in the component.
+     * the end position of the row in 'medium' screen size.
      */
-    mediumEnd: Positions;
+    me?: ResponsivePositions;
 
     /**
-     * a text to be rendered in the component.
+     * the start position of the row in 'small' screen size.
      */
-    smallStart: Positions;
+    ss?: ResponsivePositions;
 
     /**
-     * a text to be rendered in the component.
+     * the end position of the row in 'small' screen size.
      */
-    smallEnd: Positions;
+    se?: ResponsivePositions;
 
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function Row({
-                        defaultStart,
-                        defaultEnd,
-                        mediumStart,
-                        mediumEnd,
-                        smallStart,
-                        smallEnd,
+                        ds = 1,
+                        de = 12,
+                        ms = 1,
+                        me = 6,
+                        ss = 1,
+                        se = 6,
                         children,
                         ...props
                     }: RowProps) {
+
+    console.log('Styles:', styles);
+
+    const classNames = classnames({
+        [styles[`Row_default_${ds}_${de}`]]: ds && de,
+        [styles[`Row_medium_${ms}_${me}`]]: ms && me,
+        [styles[`Row_small_${ss}_${se}`]]: ss && se
+    });
+
+    console.log('Classnames:', classNames);
+
     return (
-      <div className={styles.Row} {...props}>
+      <div className={classNames} {...props}>
           {children}
       </div>
     );
-}
-
-Row.defaultProps = {
-    defaultStart: 1,
-    defaultEnd: 12,
-    mediumStart: 1,
-    mediumEnd: 6,
-    smallStart: 1,
-    smallEnd: 6
 }
