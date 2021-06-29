@@ -4,39 +4,40 @@ import * as React from 'react';
 import styles from "./row.module.scss";
 import classnames from "classnames";
 
-type Positions = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-type ResponsivePositions = 1 | 2 | 3 | 4 | 5 | 6;
+type DefaultPositions = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type MediumPositions = 1 | 2 | 3 | 4 | 5 | 6;
+type SmallPositions = 1 | 2 | 3 | 4;
 
 export type RowProps = {
     /**
      * the start position of the row in 'default' screen size.
      */
-    ds?: Positions;
+    ds?: DefaultPositions;
 
     /**
      * the end position of the row in 'default' screen size.
      */
-    de?: Positions;
+    de?: DefaultPositions;
 
     /**
      * the start position of the row in 'medium' screen size.
      */
-    ms?: ResponsivePositions;
+    ms?: MediumPositions;
 
     /**
      * the end position of the row in 'medium' screen size.
      */
-    me?: ResponsivePositions;
+    me?: MediumPositions;
 
     /**
      * the start position of the row in 'small' screen size.
      */
-    ss?: ResponsivePositions;
+    ss?: SmallPositions;
 
     /**
      * the end position of the row in 'small' screen size.
      */
-    se?: ResponsivePositions;
+    se?: SmallPositions;
 
 } & React.HTMLAttributes<HTMLDivElement>;
 
@@ -46,7 +47,7 @@ export function Row({
                         ms = 1,
                         me = 6,
                         ss = 1,
-                        se = 6,
+                        se = 4,
                         children,
                         ...props
                     }: RowProps) {

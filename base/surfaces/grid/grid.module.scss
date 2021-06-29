@@ -1,6 +1,6 @@
 $breakpoints: (
-    "s": 65rem,
-    "m": 70rem,
+    "small": 768px,
+    "medium": 1024px,
 );
 
 @mixin breakpoint($name) {
@@ -11,19 +11,19 @@ $breakpoints: (
 
 .Grid {
     display: grid;
-    grid-template-columns: 1fr repeat(12, minmax(auto, 4.2rem)) 1fr;
+    grid-template-columns: 1fr repeat(12, minmax(auto, 6.4rem)) 1fr;
     grid-template-rows: max-content;
-    gap: 2rem 2rem;
+    gap: 1.2rem 1.2rem;
     margin: 0;
 
-    @include breakpoint("s") {
-        grid-template-columns: 1rem repeat(6, 1fr) 1rem;
+    @include breakpoint("medium") {
+        grid-template-columns: 2rem repeat(6, 1fr) 2rem;
         gap: 1rem 1rem;
         margin: 0;
     }
 
-    @include breakpoint("m") {
-        grid-template-columns: 2rem repeat(6, 1fr) 2rem;
+    @include breakpoint("small") {
+        grid-template-columns: 1rem repeat(4, 1fr) 1rem;
         gap: 1rem 1rem;
         margin: 0;
     }

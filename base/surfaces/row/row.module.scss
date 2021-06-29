@@ -1,10 +1,11 @@
 $breakpoints: (
-    "small": 65rem,
-    "medium": 70rem,
+    "small": 768px,
+    "medium": 1024px,
 );
 
-$positions: 13;
-$responsive_positions: 7;
+$default_max_position: 13;
+$medium_max_position: 7;
+$small_max_position: 5;
 
 @mixin breakpoint($name) {
     @media screen and (max-width: map-get($breakpoints, $name)) {
@@ -12,7 +13,7 @@ $responsive_positions: 7;
     }
 }
 
-@mixin position($name,$length){
+@mixin position($name, $length) {
     @for $i from 1 to $length {
         @for $j from 1 to $length {
             &_#{$name}_#{$i}_#{$j} {
@@ -24,13 +25,13 @@ $responsive_positions: 7;
 }
 
 .Row {
-    @include position("default", $positions);
+    @include position("default", $default_max_position);
 
     @include breakpoint("medium") {
-        @include position("medium", $positions);
+        @include position("medium", $medium_max_position);
     }
 
     @include breakpoint("small") {
-        @include position("small", $positions);
+        @include position("small", $small_max_position);
     }
 }
